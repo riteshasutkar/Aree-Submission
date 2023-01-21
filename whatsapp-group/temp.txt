@@ -1,0 +1,33 @@
+Table member {
+  id UUID [pk]
+  name str
+  status varchar
+  created_at timestamp
+}
+
+Table group {
+  id UUID [pk]
+  description str
+  link varchar
+  created_at timestamp
+}
+
+Table group_members {
+  group_id UUID [ref: > group.id]
+  member_id UUID [ref: > member.id]
+  created_at timestamp
+}
+
+Table group_admins {
+  group_id UUID [ref: > group.id]
+  admin_id UUID [ref: > member.id]
+  created_at timestamp
+}
+
+Table group_messages {
+  msg_id UUID [pk]
+  group_id UUID [ref: > group.id]
+  message_text str
+  message_sender UUID [ref: > member.id]
+  created_at timestamp
+}
