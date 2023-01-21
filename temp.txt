@@ -12,7 +12,6 @@ Table group {
   created_at timestamp
 }
 
-
 Table group_members {
   group_id UUID [ref: > group.id]
   member_id UUID [ref: > member.id]
